@@ -28,6 +28,8 @@ src/
 |  ├── LanguageSwitcher.module.css
 |  ├── Layout.jsx
 |  ├── Layout.module.css
+|  ├── Loading.jsx
+|  ├── Loading.module.css
 |  ├── Modal.jsx
 |  ├── Modal.module.css
 |  ├── ReasonModal.jsx
@@ -66,7 +68,9 @@ src/
 |  └── config.js
 |
 ├── hooks/
-|  └── useAIAgent.js
+|  ├── useAIAgent.js
+|  ├── useInstallPrompt.js
+|  └── usePwaInstall.js
 |
 ├── pages/
 |  ├── chat
