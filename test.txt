@@ -1,0 +1,133 @@
+src/
+├── assets/
+|  ├── dojo-icon.png
+|  ├── screenshot-ai.png
+|  ├── screenshot-chat.png
+|  ├── screenshot-dashboard.png
+|  ├── screenshot-leadership.png
+|  ├── screenshot-progress.png
+|  ├── screenshot-quizzes.png
+|  ├── screenshot-rewards.png
+|  ├── screenshot-settings.png
+|  ├── screenshot-syllabus.png
+|  └── whatsappQR.png
+|
+├── components/
+|  ├── ai
+|  |  ├── ChatInput.jsx
+|  |  ├── ChatMessage.jsx
+|  |  ├── ConversationList.jsx
+|  |  ├── SuggestionCards.jsx
+|  |  └── ToolConfirmCard.jsx
+|  ├── DeleteConfirmModal.jsx
+|  ├── DeleteConfirmModal.module.css
+|  ├── ImageUploader.jsx
+|  ├── ItemRenderer.jsx
+|  ├── ItemRenderer.module.css
+|  ├── LanguageSwitcher.jsx
+|  ├── LanguageSwitcher.module.css
+|  ├── Layout.jsx
+|  ├── Layout.module.css
+|  ├── Modal.jsx
+|  ├── Modal.module.css
+|  ├── ReasonModal.jsx
+|  ├── ReasonModal.module.css
+|  ├── StudentProfileModal.jsx
+|  └── StudentProfileModal.module.css
+|
+├── context/
+|  └── AuthContext.jsx
+|
+├── utils/
+|  ├── adminAuthNotifications.js
+|  ├── adminPermissions.js
+|  ├── badges.js
+|  ├── chat.js
+|  ├── chatCleanup.js
+|  ├── chatPermissions.js
+|  ├── defaultLayout.js
+|  ├── experience.js
+|  ├── linkPreview.js
+|  ├── profanity.js
+|  └── progressEvents.js
+|
+├── locales/
+|  ├── en/
+|  |  ├── chat.json
+|  |  └── translation.json
+|  ├── fr/
+|  |  ├── chat.json
+|  |  └── translation.json
+|  └── ar/
+|     ├── chat.json
+|     └── translation.json
+|
+├── firebase/
+|  └── config.js
+|
+├── hooks/
+|  └── useAIAgent.js
+|
+├── pages/
+|  ├── chat
+|  |  ├── BlockModal.jsx
+|  |  ├── MessageComposer.jsx
+|  |  ├── MessageList.jsx
+|  |  ├── MessageRow.jsx
+|  |  ├── PinnedBar.jsx
+|  |  └── RoomDetails.jsx
+|  ├── public
+|  |  ├── About.jsx
+|  |  ├── Contact.jsx
+|  |  ├── Home.jsx
+|  |  ├── HowItWorks.jsx
+|  |  ├── Pricing.jsx
+|  |  ├── Public.module.css
+|  |  └── PublicLayout.jsx
+|  ├── Admin.module.css
+|  ├── AdminApprovals.jsx
+|  ├── AdminItemLayout.jsx
+|  ├── AdminItemLayout.module.css
+|  ├── AdminItems.jsx
+|  ├── AdminManage.jsx
+|  ├── AdminStudents.jsx
+|  ├── AdminValidations.jsx
+|  ├── AIAgent.jsx
+|  ├── AIAgent.module.css
+|  ├── Auth.module.css
+|  ├── CategoryDetails.jsx
+|  ├── Chat.jsx
+|  ├── Chat.module.css
+|  ├── Competition.jsx
+|  ├── Competition.module.css
+|  ├── Dashboard.jsx
+|  ├── Dashboard.module.css
+|  ├── ItemDetail.jsx
+|  ├── ItemDetail.module.css
+|  ├── Login.jsx
+|  ├── Progress.jsx
+|  ├── Progress.module.css
+|  ├── Quiz.module.css
+|  ├── Quizzes.jsx
+|  ├── Register.jsx
+|  ├── Rewards.jsx
+|  ├── Rewards.module.css
+|  ├── Settings.jsx
+|  ├── Settings.module.css
+|  ├── Syllabus.jsx
+|  └── Syllabus.module.css
+|
+├── styles/
+|  ├── global.css
+|  └── variables.css
+|
+├── services
+|  └── ai
+|     ├── aiClient.js
+|     ├── aiTools.js
+|     ├── appRegistry.js
+|     └── conversationStore.js
+|
+├── App.jsx
+├── i18n.js
+└── main.jsx

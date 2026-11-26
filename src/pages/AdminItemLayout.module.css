@@ -1,0 +1,340 @@
+/* src/pages/AdminItemLayout.module.css */
+.backLink {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--color-sumi-light);
+  font-weight: bold;
+  text-decoration: none;
+}
+.backLink:hover { color: var(--color-bengara); }
+
+/* ---------- Header with Design/Preview toggle ---------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.headerText { flex: 1; min-width: 260px; }
+.headerText h1 {
+  color: var(--color-bengara);
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+.headerSub {
+  color: var(--color-sumi-light);
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+.headerText p { color: var(--color-sumi-light); }
+
+/* Toggle group */
+.viewToggle {
+  display: inline-flex;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.viewToggle button {
+  border: none;
+  padding: 10px 22px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.toggleInactive {
+  background: white;
+  color: var(--color-sumi-light);
+}
+.toggleInactive:hover {
+  background: #f6f3ec;
+  color: var(--color-sumi);
+}
+.toggleActive {
+  background: var(--color-bengara);
+  color: white;
+}
+
+/* ---------- Controls card ---------- */
+.controlsCard {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--color-border);
+  border-top: 5px solid var(--color-bengara);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.controlsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.controlsHeader h3 {
+  font-family: var(--font-heading);
+  color: var(--color-sumi);
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.topActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.helperText {
+  color: var(--color-sumi-light);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* ---------- Section rows ---------- */
+.sectionList { display: flex; flex-direction: column; gap: 12px; }
+
+.sectionRow {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+.sectionRowDragging {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  opacity: 0.92;
+  z-index: 10;
+  cursor: grabbing;
+  border-color: var(--color-gold);
+}
+
+.rowTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.sectionTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 200px;
+}
+.dragHandle {
+  color: #bbb;
+  font-size: 1.2rem;
+  cursor: grab;
+  padding: 4px 6px;
+  user-select: none;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+  touch-action: none; /* lets the pointer sensor work reliably on touch */
+}
+.dragHandle:hover {
+  color: var(--color-gold);
+  background: rgba(192, 160, 98, 0.1);
+}
+.dragHandle:active {
+  cursor: grabbing;
+}
+.sectionTypeLabel {
+  font-weight: bold;
+  color: var(--color-sumi);
+  font-size: 1rem;
+}
+.noDataBadge,
+.hiddenBadge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.noDataBadge { background: #f0e0e0; color: #a44; }
+.hiddenBadge { background: #e0e0f0; color: #55a; }
+
+.rowActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.moveBtn {
+  background: white;
+  border: 1px solid var(--color-border);
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+.moveBtn:hover:not(:disabled) {
+  background: var(--color-gold);
+  color: white;
+  border-color: var(--color-gold);
+}
+.moveBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.toggleLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--color-sumi-light);
+  cursor: pointer;
+}
+
+.removeBtn {
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.removeBtn:hover { background: #e74c3c; color: white; }
+
+.rowBottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 12px;
+}
+.rowBottom label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-sumi-light);
+  font-weight: bold;
+}
+.rowBottom select,
+.rowBottom input {
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: white;
+  color: var(--color-sumi);
+}
+.titleInput { grid-column: 1 / -1; }
+
+@media (max-width: 720px) {
+  .rowBottom { grid-template-columns: 1fr; }
+}
+
+/* ---------- Add section bar ---------- */
+.addSectionBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-sumi-light);
+}
+.addChip {
+  background: var(--color-sumi);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.addChip:hover { background: var(--color-bengara); }
+
+/* ---------- Action buttons (shared) ---------- */
+.saveBtn,
+.applyBtn,
+.resetBtn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+  border: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.saveBtn {
+  background: var(--color-bengara);
+  color: white;
+}
+.saveBtn:hover:not(:disabled) { background: #6a211a; }
+
+.applyBtn {
+  background: var(--color-gold);
+  color: var(--color-sumi);
+}
+.applyBtn:hover:not(:disabled) { background: #a88a4d; }
+
+.resetBtn {
+  background: transparent;
+  color: var(--color-sumi-light);
+  border: 1px solid var(--color-border);
+}
+.resetBtn:hover:not(:disabled) { background: #e0dcd2; color: var(--color-sumi); }
+
+.saveBtn:disabled,
+.applyBtn:disabled,
+.resetBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---------- Preview ---------- */
+.previewWrapper {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: rgba(244, 241, 234, 0.55);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+.previewHeader {
+  padding: 16px 24px;
+  background: rgba(26, 26, 26, 0.9);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.previewHeader h3 {
+  color: var(--color-gold);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.previewSubtitle { color: #aaa; font-size: 0.8rem; letter-spacing: 1px; }
+
+.previewFrame {
+  padding: 32px;
+  min-height: 300px;
+}
+
+@media (max-width: 720px) {
+  .controlsHeader { flex-direction: column; align-items: flex-start; }
+  .topActions { width: 100%; }
+}

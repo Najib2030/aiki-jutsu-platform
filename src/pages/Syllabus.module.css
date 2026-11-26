@@ -1,0 +1,617 @@
+/* src/pages/Syllabus.module.css */
+
+/* ============================ */
+/* SHARED (used by CategoryDetails too) */
+/* ============================ */
+.backLink {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--color-sumi-light);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 8px 0;
+  font-size: 1rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.backLink:hover {
+  color: var(--color-bengara);
+  transform: translateX(-4px);
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--color-bengara);
+  margin: 0 0 8px 0;
+  letter-spacing: 2px;
+  line-height: 1.15;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px dashed var(--color-border);
+  border-radius: 12px;
+  color: var(--color-sumi-light);
+}
+.emptyState h3 {
+  color: var(--color-sumi);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.emptyState p { font-size: 1rem; margin: 0; }
+
+/* ============================ */
+/* SYLLABUS (categories page)   */
+/* ============================ */
+.syllabusPage {
+  padding-bottom: 20px;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 22px;
+  border-bottom: 2px solid var(--color-border);
+  flex-wrap: wrap;
+}
+.pageHeaderText { flex: 1; min-width: 260px; }
+
+.pageSubtitle {
+  color: var(--color-sumi-light);
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.headerMeta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.metaStat {
+  background: var(--color-sumi);
+  color: var(--color-gold);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.categoryCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 26px 20px 26px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid var(--color-bengara);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
+  overflow: hidden;
+  animation: cardIn 0.45s ease both;
+}
+
+.categoryCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle at top right, rgba(192, 160, 98, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.categoryCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+  border-left-color: var(--color-gold);
+}
+
+.cardOrder {
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: rgba(139, 44, 36, 0.1);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cardBody {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  padding-right: 55px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  color: var(--color-sumi);
+  margin: 0 0 6px 0;
+  letter-spacing: 1px;
+  line-height: 1.25;
+}
+
+.cardJa {
+  font-size: 1.05rem;
+  color: var(--color-bengara);
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.cardTranslations {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.83rem;
+  color: var(--color-sumi-light);
+  margin-bottom: 16px;
+  min-height: 20px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.itemCount {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.viewArrow {
+  color: var(--color-bengara);
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.25s ease;
+}
+.categoryCard:hover .viewArrow {
+  transform: translateX(6px);
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================ */
+/* CATEGORY DETAILS page        */
+/* ============================ */
+.categoryHeader {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.categoryJa {
+  font-size: 1.15rem;
+  color: var(--color-sumi-light);
+  letter-spacing: 3px;
+  margin: 4px 0 14px 0;
+}
+
+.categoryMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 0.8rem;
+  color: var(--color-sumi-light);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+.categoryMeta span + span::before {
+  content: '·';
+  margin-right: 16px;
+  color: var(--color-gold);
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.itemOrder {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-gold);
+  min-width: 46px;
+  text-align: center;
+  line-height: 1;
+}
+
+.itemInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemNames {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.japaneseName {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-sumi);
+  margin: 0;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.englishName {
+  color: var(--color-sumi-light);
+  font-size: 1rem;
+  margin: 0;
+  font-style: italic;
+}
+
+.itemMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.beltBadge,
+.metaChip {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.beltBadge { color: #fff; background: #f1c40f; }
+.beltBadge[data-belt="yellow"] { background: #f1c40f; color: #333; }
+.beltBadge[data-belt="orange"] { background: #e67e22; }
+.beltBadge[data-belt="green"]  { background: #2ecc71; }
+.beltBadge[data-belt="blue"]   { background: #3498db; }
+.beltBadge[data-belt="brown"]  { background: #8B5A2B; }
+.beltBadge[data-belt="black"]  { background: #1a1a1a; }
+.beltBadge[data-belt="dan1"]   { background: #d4af37; color: #333; }
+
+.metaChip {
+  background: rgba(192, 160, 98, 0.15);
+  color: var(--color-sumi-light);
+}
+
+.itemArrow {
+  color: var(--color-sumi-light);
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.itemCard:hover .itemArrow {
+  transform: translateX(4px);
+  color: var(--color-bengara);
+}
+
+/* ============================ */
+/* RESPONSIVE                   */
+/* ============================ */
+@media (max-width: 720px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pageTitle { font-size: 2rem; }
+  .categoryGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .itemCard {
+    gap: 12px;
+    padding: 14px 16px;
+  }
+  .itemOrder { font-size: 1.4rem; min-width: 32px; }
+  .japaneseName { font-size: 1.15rem; }
+  .englishName { font-size: 0.9rem; }
+  .itemArrow { font-size: 1.2rem; }
+}
+/* ── Icon support ── */
+.metaStat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.viewArrowIcon {
+  color: var(--color-bengara);
+  transition: transform 0.25s ease;
+}
+
+.categoryCard:hover .viewArrowIcon {
+  transform: translateX(6px);
+}
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.itemArrowIcon {
+  color: var(--color-sumi-light);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.itemCard:hover .itemArrowIcon {
+  transform: translateX(4px);
+  color: var(--color-bengara);
+}
+
+/* ═══════════════════════════════════════════════ */
+/* FILTER BAR (shared by Syllabus + CategoryDetails) */
+/* ═══════════════════════════════════════════════ */
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-gold);
+  border-radius: 8px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.filterField {
+  position: relative;
+  flex: 1 1 240px;
+  display: flex;
+  align-items: center;
+}
+
+.filterIcon {
+  position: absolute;
+  left: 12px;
+  color: var(--color-sumi-light);
+  pointer-events: none;
+}
+
+.filterInput {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  background: white;
+  color: var(--color-sumi);
+}
+
+.filterInput:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(192, 160, 98, 0.2);
+}
+
+.filterSelect {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  background: white;
+  color: var(--color-sumi);
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(192, 160, 98, 0.2);
+}
+
+.clearBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: 1px solid var(--color-bengara);
+  background: transparent;
+  color: var(--color-bengara);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.clearBtn:hover {
+  background: var(--color-bengara);
+  color: white;
+}
+
+/* ═══════════════════════════════════════════════ */
+/* LOCKED BANNER                                  */
+/* ═══════════════════════════════════════════════ */
+.lockedBanner {
+  padding: 12px 16px;
+  background: #fff8e1;
+  border-left: 4px solid #f39c12;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  color: #856404;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════ */
+/* ITEM CARD (updated structure — link + actions) */
+/* ═══════════════════════════════════════════════ */
+.itemCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid var(--color-gold);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.itemCard[data-status="learning"]  { border-left-color: #f39c12; }
+.itemCard[data-status="completed"] { border-left-color: #2ecc71; }
+
+.itemCard:hover {
+  transform: translateX(2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.itemMain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+  transition: transform 0.2s ease;
+}
+
+.itemMain:hover .itemArrowIcon {
+  transform: translateX(4px);
+  color: var(--color-bengara);
+}
+
+.itemActions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Action buttons */
+.actionPrimary,
+.actionSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: var(--font-body);
+}
+
+.actionPrimary {
+  background: var(--color-bengara);
+  border-color: var(--color-bengara);
+  color: white;
+}
+
+.actionPrimary:hover:not(:disabled) {
+  background: #6a211a;
+  border-color: #6a211a;
+}
+
+.actionSecondary {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-sumi-light);
+}
+
+.actionSecondary:hover:not(:disabled) {
+  background: #f4f1ea;
+  color: var(--color-sumi);
+}
+
+.actionPrimary:disabled,
+.actionSecondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Remove the old .itemCard:hover rule that changed border-left-color —
+   it now conflicts with the data-status colours.  (Delete it.) */
+
+/* ═══════════════════════════════════════════════ */
+/* RESPONSIVE                                     */
+/* ═══════════════════════════════════════════════ */
+@media (max-width: 720px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pageTitle { font-size: 2rem; }
+  .categoryGrid { grid-template-columns: 1fr; }
+
+  .itemCard {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .itemActions {
+    justify-content: flex-end;
+    padding-top: 10px;
+    border-top: 1px dashed var(--color-border);
+  }
+
+  .filterBar { padding: 12px; }
+  .filterField { flex: 1 1 100%; }
+  .filterSelect { flex: 1 1 100%; }
+}
+
+@media (max-width: 520px) {
+  .itemCard {
+    padding: 14px 16px;
+  }
+  .itemOrder { font-size: 1.4rem; min-width: 32px; }
+  .japaneseName { font-size: 1.15rem; }
+  .englishName { font-size: 0.9rem; }
+  .itemArrowIcon { font-size: 1.2rem; }
+}

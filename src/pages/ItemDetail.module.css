@@ -1,0 +1,23 @@
+/* src/pages/ItemDetail.module.css */
+.backLink {
+  display: inline-block;
+  margin-bottom: 20px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-sumi-light);
+  font-weight: bold;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.backLink:hover { color: var(--color-bengara); }
+
+.error {
+  color: var(--color-bengara);
+  font-weight: bold;
+  text-align: center;
+  padding: 40px;
+}

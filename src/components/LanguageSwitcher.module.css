@@ -1,0 +1,242 @@
+/* src/components/LanguageSwitcher.module.css
+   Floating samurai-mon style language switcher.
+   Palette: washi (paper), sumi (ink), gold, bengara (deep red).
+*/
+
+.wrapper {
+  position: fixed;
+  z-index: 999;
+  touch-action: none;
+  user-select: none;
+  will-change: left, top;
+}
+
+/* ── The medallion (butt on) ────────────────────────────── */
+.medallion {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  /* Gold outer ring with a subtle bevel */
+  background:
+    radial-gradient(circle at 32% 28%,
+      #e5cb8d 0%,
+      var(--color-gold) 52%,
+      #8a6e3a 100%);
+
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+/* Inner washi disc with a bengara hairline ring */
+.medallion::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--color-washi);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(139, 44, 36, 0.35);
+  pointer-events: none;
+}
+
+.medallion:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.28),
+    0 0 0 4px rgba(192, 160, 98, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.medallion:active {
+  transform: scale(0.96);
+}
+
+.medallion:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+/* Dragging state */
+.dragging .medallion {
+  cursor: grabbing;
+  transform: scale(1.06);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    0 0 0 6px rgba(192, 160, 98, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+/* The kanji 語 (language / word) */
+.medallionKanji {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  line-height: 1;
+  color: var(--color-sumi);
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* Small sumi pill below the medallion, shows EN / FR / AR */
+.codeBadge {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: var(--color-sumi);
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  padding: 2px 7px;
+  border-radius: 8px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(192, 160, 98, 0.35);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* ── Dropdown (washi name-plate style) ─────────────────── */
+.dropdown {
+  position: absolute;
+  min-width: 190px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  background: var(--color-washi);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-gold);
+  border-radius: 10px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(192, 160, 98, 0.15);
+
+  animation: dropdownIn 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Corner-aware placement */
+.cornerBottomRight .dropdown {
+  bottom: calc(100% + 14px);
+  right: 0;
+}
+.cornerBottomLeft .dropdown {
+  bottom: calc(100% + 14px);
+  left: 0;
+}
+.cornerTopRight .dropdown {
+  top: calc(100% + 14px);
+  right: 0;
+}
+.cornerTopLeft .dropdown {
+  top: calc(100% + 14px);
+  left: 0;
+}
+
+/* Language option row */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-body);
+  color: var(--color-sumi);
+  transition: background 0.15s;
+}
+
+.option:hover {
+  background: rgba(192, 160, 98, 0.14);
+}
+
+.optionActive {
+  background: rgba(139, 44, 36, 0.08);
+}
+
+.optionActive:hover {
+  background: rgba(139, 44, 36, 0.13);
+}
+
+.optionBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.optionLabel {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--color-sumi);
+  letter-spacing: 0.3px;
+}
+
+.optionActive .optionLabel {
+  color: var(--color-bengara);
+  font-weight: bold;
+}
+
+.optionSub {
+  font-size: 0.72rem;
+  color: var(--color-sumi-light);
+  letter-spacing: 1.5px;
+  opacity: 0.75;
+  margin-top: 1px;
+}
+
+.optionCheck {
+  flex-shrink: 0;
+  color: var(--color-bengara);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .medallion {
+    width: 48px;
+    height: 48px;
+  }
+  .medallionKanji {
+    font-size: 1.25rem;
+  }
+  .codeBadge {
+    font-size: 0.55rem;
+    padding: 1px 6px;
+    bottom: -5px;
+  }
+  .dropdown {
+    min-width: 170px;
+  }
+  .optionLabel {
+    font-size: 0.88rem;
+  }
+}

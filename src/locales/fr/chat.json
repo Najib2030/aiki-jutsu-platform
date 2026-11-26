@@ -1,0 +1,222 @@
+{
+  "openMenu": "Ouvrir le menu",
+  "heading": "Salle du Dojo",
+  "subtitle": "Un espace commun pour tous les membres du dojo.",
+  "loading": "Chargement de la salle…",
+  "maintenance": "La salle est temporairement en maintenance. Veuillez réessayer plus tard.",
+  "maintenanceTitle": "Salle indisponible",
+  "retry": "Réessayer",
+  "roomClosed": "La salle est fermée par un modérateur. Seuls les admins de salle peuvent publier.",
+  "blockedBanner": "Vous avez été bloqué pour publier dans cette salle.",
+  "blockedExpiresIn": "Bloqué jusqu'au {{date}}",
+  "blockedForever": "Bloqué définitivement",
+  "blockedReason": "Raison : {{reason}}",
+  "loadMore": "Charger les messages plus anciens",
+  "loadMoreLoading": "Chargement des messages plus anciens…",
+  "notApproved": {
+    "title": "Pas encore approuvé",
+    "message": "Votre compte est en cours d'examen par votre Sensei. Vous pourrez rejoindre le chat du Dojo Room dès que votre compte sera approuvé."
+  },
+  "composer": {
+    "placeholder": "En train d'écrire…",
+    "placeholderBlocked": "Vous ne pouvez pas publier pour le moment.",
+    "placeholderClosed": "La salle est fermée.",
+    "send": "Envoyer",
+    "cancel": "Annuler",
+    "cancelReply": "Annuler la réponse",
+    "cancelEdit": "Annuler la modification",
+    "editing": "Modification du message",
+    "replyingTo": "En réponse à",
+    "attach": "Joindre",
+    "image": "Image",
+    "syllabus": "Programme",
+    "charactersLeft_one": "{{count}} caractère restant",
+    "charactersLeft_other": "{{count}} caractères restants",
+    "overLimit": "Le message est trop long.",
+    "profanity": "Votre message contient un langage non autorisé ici.",
+    "badUrl": "Votre message contient un lien non autorisé ici.",
+    "empty": "Votre message est vide.",
+    "mentionHint": "Tapez @ pour mentionner quelqu'un",
+    "pickCategory": "Choisir une catégorie",
+    "pickItem": "Choisir une technique",
+    "pickSyllabus": "Joindre depuis le programme",
+    "uploading": "Téléversement de l'image…",
+    "uploadFailed": "Échec du téléversement. Veuillez réessayer.",
+    "bold": "Gras",
+    "italic": "Italique",
+    "code": "Code en ligne",
+    "emojiPicker": "Émojis",
+    "openEmoji": "Ouvrir les émojis"
+  },
+  "message": {
+    "edited": "modifié",
+    "editedAt": "Modifié {{time}}",
+    "deleted": "Ce message a été supprimé",
+    "sending": "Envoi…",
+    "failed": "Échec de l'envoi",
+    "retry": "Réessayer",
+    "replyTo": "en réponse à",
+    "deletedReply": "message supprimé",
+    "readByTitle": "Vu par {{count}}",
+    "readByEmpty": "Personne ne l'a encore vu.",
+    "you": "Vous",
+    "readMore": "Lire plus",
+    "showLess": "Réduire",
+    "loadingImage": "Chargement de l'image…",
+    "timeNow": "maintenant",
+    "minutesAgo": "il y a {{n}} min",
+    "hoursAgo": "il y a {{n}} h"
+  },
+  "actions": {
+    "reply": "Répondre",
+    "copy": "Copier le texte",
+    "info": "Infos du message",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "block": "Bloquer l'utilisateur",
+    "unblock" : "Débloquer l'utilisateur",
+    "report": "Signaler",
+    "download": "Télécharger l'image",
+    "pin": "Épingler",
+    "unpin": "Désépingler",
+    "sheetTitle": "Actions du message"
+  },
+  "date": { "today": "Aujourd'hui", "yesterday": "Hier" },
+  "pinned": {
+    "title": "Épinglés",
+    "empty": "Aucun message épinglé pour l'instant.",
+    "pinnedBy": "Épinglé par {{name}}",
+    "jumpTo": "Aller au message",
+    "messagePinned" : "Message épinglé",
+    "tooMany": "Seuls 5 messages peuvent être épinglés à la fois."
+  },
+  "newMessages": {
+    "divider": "Nouveaux messages",
+    "scrollDown": "Aller aux derniers messages",
+    "count_one": "{{count}} nouveau message",
+    "count_other": "{{count}} nouveaux messages"
+  },
+  "typing": {
+    "one": "{{name}} est en train d'écrire…",
+    "two": "{{name}} et {{other}} sont en train d'écrire…",
+    "many": "{{count}} personnes sont en train d'écrire…"
+  },
+  "mention": {
+    "title": "Mentionner quelqu'un",
+    "noMatches": "Aucun membre trouvé.",
+    "hint": "Utilisez les flèches et Entrée pour choisir"
+  },
+  "syllabusRef": {
+    "category": "Catégorie",
+    "item": "Technique",
+    "viewInSyllabus": "Voir dans le programme",
+    "categoryUnavailable": "Catégorie indisponible",
+    "itemUnavailable": "Technique indisponible"
+  },
+  "room": {
+    "title": "Détails de la salle",
+    "subtitle": "Membres, modérateurs et paramètres.",
+    "tabs": { "members": "Membres", "admins": "Admins de salle", "blocked": "Bloqués", "reports": "Signalements", "settings": "Paramètres", "health": "Santé" },
+    "members": {
+      "title": "Membres",
+      "searchPlaceholder": "Rechercher un membre…",
+      "noMatches": "Aucun membre ne correspond à votre recherche.",
+      "you": "Vous",
+      "mainRoomAdmin": "Admin principal",
+      "roomAdmin": "Admin de salle",
+      "student": "Élève"
+    },
+    "admins": {
+      "title": "Admins de salle",
+      "hint": "Les admins de salle peuvent supprimer tout message, bloquer des utilisateurs, examiner les signalements et épingler des annonces.",
+      "promote": "Nommer admin de salle",
+      "demote": "Retirer admin de salle",
+      "searchPlaceholder": "Rechercher un membre à promouvoir…",
+      "noRegularAdmins": "Aucun admin de salle. Promouvez un membre de confiance.",
+      "mainAdminCantBeDemoted": "L'admin principal ne peut pas être rétrogradé."
+    },
+    "blocked": {
+      "title": "Utilisateurs bloqués",
+      "hint": "Les utilisateurs bloqués peuvent lire mais pas publier jusqu'à expiration ou levée du blocage.",
+      "none": "Aucun utilisateur bloqué.",
+      "unblock": "Débloquer",
+      "blockedUntil": "Jusqu'au {{date}}",
+      "blockedForever": "Pour toujours",
+      "blockedBy": "Bloqué par {{name}}",
+      "reason": "Raison : {{reason}}"
+    },
+    "settings": {
+      "title": "Paramètres de la salle",
+      "closeChat": "Fermer la salle",
+      "closeChatHint": "Les élèves ne pourront plus publier. Les admins de salle peuvent toujours publier.",
+      "openChat": "Rouvrir la salle",
+      "openChatHint": "Tout le monde peut à nouveau publier.",
+      "closedStatus": "La salle est actuellement fermée.",
+      "openStatus": "La salle est actuellement ouverte.",
+      "cleanupInfo": "Les messages de plus de 30 jours sont supprimés automatiquement lorsqu'un admin de salle ouvre la salle."
+    },
+    "health": {
+      "title": "Santé du chat",
+      "totalMessages": "Total des messages",
+      "deletedMessages": "Messages supprimés",
+      "activeToday": "Actifs aujourd'hui",
+      "blockedUsers": "Utilisateurs bloqués",
+      "activeMembers": "Membres",
+      "pinnedCount": "Messages épinglés"
+    }
+  },
+  "block": {
+    "title": "Bloquer l'utilisateur",
+    "message": "Choisissez la durée du blocage de {{name}}.",
+    "reasonPlaceholder": "Pourquoi bloquez-vous cet utilisateur ? (facultatif)",
+    "duration24h": "24 heures",
+    "duration7d": "7 jours",
+    "durationForever": "Pour toujours",
+    "confirm": "Bloquer",
+    "cancel": "Annuler",
+    "success": "{{name}} a été bloqué.",
+    "cannotBlockAdmin": "Vous ne pouvez pas bloquer un admin de salle.",
+    "cannotBlockSelf": "Vous ne pouvez pas vous bloquer vous-même."
+  },
+  "report": {
+    "title": "Signaler le message",
+    "message": "Expliquez pourquoi ce message devrait être examiné par un admin de salle.",
+    "reasonPlaceholder": "ex. Spam, harcèlement, hors sujet…",
+    "submit": "Envoyer le signalement",
+    "cancel": "Annuler",
+    "success": "Merci. Un admin de salle l'examinera.",
+    "rateLimited": "Vous avez déjà signalé ce message.",
+    "cannotReportOwn": "Vous ne pouvez pas signaler votre propre message.",
+    "reason": "Raison",
+    "dismiss": "Ignorer"
+  },
+  "deleteConfirm": {
+    "title": "Supprimer le message",
+    "message": "Supprimer ce message ? Les réponses continueront d'afficher qu'il a été supprimé.",
+    "confirm": "Supprimer",
+    "cancel": "Annuler",
+    "success": "Message supprimé."
+  },
+  "roomAdminBadge": "Admin de salle",
+  "mainRoomAdminBadge": "Admin principal",
+  "notifications": {
+    "reply": { "title": "Nouvelle réponse dans la Salle du Dojo", "message": "{{name}} a répondu à votre message." },
+    "mention": { "title": "Vous avez été mentionné dans la Salle du Dojo", "message": "{{name}} vous a mentionné." }
+  },
+  "errors": {
+    "sendFailed": "Impossible d'envoyer le message. Veuillez réessayer.",
+    "editFailed": "Impossible de modifier le message.",
+    "deleteFailed": "Impossible de supprimer le message.",
+    "reportFailed": "Impossible d'envoyer le signalement.",
+    "blockFailed": "Impossible de bloquer l'utilisateur.",
+    "notAllowed": "Vous n'êtes pas autorisé à faire cela.",
+    "profanity": "Votre message contient un langage non autorisé.",
+    "badUrl": "Votre message contient un lien non autorisé.",
+    "tooLong": "Le message est trop long.",
+    "empty": "Le message est vide.",
+    "blocked": "Vous êtes actuellement bloqué.",
+    "closed": "La salle est fermée.",
+    "quota": "La salle est temporairement indisponible.",
+    "unblockFailed": "Impossible de débloquer l'utilisateur."
+  }
+}

@@ -1,0 +1,499 @@
+/* src/components/StudentProfileModal.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2200;
+  padding: 20px;
+  animation: overlayIn 0.2s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modalCard {
+  background: white;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  animation: cardIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Header ── */
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--color-border);
+  gap: 16px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  flex: 1;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 3px solid;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.headerInfo {
+  min-width: 0;
+  flex: 1;
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--color-sumi);
+  margin: 0 0 4px;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.email {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--color-sumi-light);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.email span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.beltBadge,
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.68rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+}
+
+.statusBadge {
+  background: #f4f1ea;
+  color: var(--color-sumi-light);
+}
+
+.badgeActive      { background: #e8f6ec; color: #1e7a3f; }
+.badgePending     { background: #fff8e1; color: #b7791f; }
+.badgeUnverified  { background: #fff3cd; color: #856404; }
+.badgeDisabled    { background: #fdecea; color: #c0392b; }
+.badgeDeleted     { background: #f0f0f0; color: #888; }
+.badgeAdmin       { background: linear-gradient(135deg, #d4af37, #b8932b); color: white; }
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-sumi-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.closeBtn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--color-sumi);
+}
+
+.closeBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Body ── */
+.modalBody {
+  padding: 22px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 14px;
+  color: var(--color-sumi-light);
+  font-size: 0.9rem;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-bengara);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Sections ── */
+.section {
+  margin-bottom: 22px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  color: var(--color-bengara);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sectionTitle svg {
+  opacity: 0.85;
+}
+
+/* ── Info grid ── */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.infoItem {
+  background: #fdfaf5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--color-gold);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.infoLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-sumi-light);
+  font-weight: bold;
+}
+
+.infoValue {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--color-sumi);
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Extra info list ── */
+.extraList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.extraRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 9px 14px;
+  background: #fdfaf5;
+  border-radius: 6px;
+  border-left: 3px solid var(--color-gold);
+  font-size: 0.88rem;
+}
+
+.extraRow.extra_danger {
+  border-left-color: #e74c3c;
+  background: #fdecea;
+  color: #8a1f17;
+}
+
+.extraRow.extra_success {
+  border-left-color: #2ecc71;
+  background: #e8f6ec;
+  color: #1e7a3f;
+}
+
+.extraLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: var(--color-sumi-light);
+  flex-shrink: 0;
+}
+
+.extraValue {
+  font-weight: bold;
+  text-align: right;
+  word-break: break-word;
+}
+
+/* ── Stats ── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.statCard {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 12px;
+  text-align: center;
+  border-top: 3px solid var(--color-gold);
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-bengara);
+  line-height: 1.1;
+  margin-bottom: 3px;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: var(--color-sumi);
+}
+
+.statSub {
+  font-size: 0.68rem;
+  color: var(--color-sumi-light);
+  margin-top: 2px;
+}
+
+.statBarTrack {
+  height: 5px;
+  background: #f0ebe1;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.statBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-bengara), var(--color-gold));
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Belt journey ── */
+.beltList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.beltRow {
+  display: grid;
+  grid-template-columns: 16px 110px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #faf8f3;
+}
+
+.beltRowCurrent {
+  background: #fff8e1;
+  box-shadow: inset 0 0 0 1px var(--color-gold);
+}
+
+.beltDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.beltName {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--color-sumi);
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.beltBarTrack {
+  height: 8px;
+  background: #e8e3d7;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.beltBarFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.beltCount {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--color-sumi);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.beltHistory {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.beltHistoryLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-sumi-light);
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.beltHistoryChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.68rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Footer ── */
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-top: 1px solid var(--color-border);
+  background: #fdfaf5;
+  flex-wrap: wrap;
+}
+
+.closeFooterBtn {
+  padding: 10px 22px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-sumi-light);
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.closeFooterBtn:hover {
+  background: #f4f1ea;
+  color: var(--color-sumi);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .modalCard { max-height: 95vh; }
+  .modalHeader { padding: 18px; }
+  .modalBody { padding: 16px; }
+  .modalFooter { padding: 12px 16px; }
+  .infoGrid { grid-template-columns: 1fr; }
+  .statsGrid { grid-template-columns: 1fr; }
+  .beltRow { grid-template-columns: 14px 90px 1fr auto; gap: 8px; padding: 7px 8px; }
+  .beltName { font-size: 0.8rem; }
+  .avatar { width: 54px; height: 54px; font-size: 1.3rem; }
+  .name { font-size: 1.15rem; }
+}

@@ -1,0 +1,222 @@
+{
+  "openMenu": "فتح القائمة",
+  "heading": "غرفة الدوجو",
+  "subtitle": "مساحة مشتركة لكل أعضاء الدوجو.",
+  "loading": "جارٍ تحميل الغرفة…",
+  "maintenance": "الغرفة في صيانة مؤقتة. يرجى المحاولة لاحقًا.",
+  "maintenanceTitle": "الغرفة غير متاحة",
+  "retry": "إعادة المحاولة",
+  "roomClosed": "تم إغلاق الغرفة من قبل مشرف. يمكن لمشرفي الغرفة فقط النشر.",
+  "blockedBanner": "لقد تم حظرك من النشر في هذه الغرفة.",
+  "blockedExpiresIn": "محظور حتى {{date}}",
+  "blockedForever": "محظور بشكل دائم",
+  "blockedReason": "السبب: {{reason}}",
+  "loadMore": "تحميل الرسائل الأقدم",
+  "loadMoreLoading": "جارٍ تحميل الرسائل الأقدم…",
+  "notApproved": {
+    "title": "لم تتم الموافقة بعد",
+    "message": "حسابك قيد المراجعة حالياً من قبل المدرب. ستتمكن من الانضمام إلى دردشة غرفة الدوجو بمجرد الموافقة على حسابك."
+  },
+  "composer": {
+    "placeholder": "جارٍ الكتابة…",
+    "placeholderBlocked": "لا يمكنك النشر حاليًا.",
+    "placeholderClosed": "الغرفة مغلقة.",
+    "send": "إرسال",
+    "cancel": "إلغاء",
+    "cancelReply": "إلغاء الرد",
+    "cancelEdit": "إلغاء التعديل",
+    "editing": "تعديل الرسالة",
+    "replyingTo": "ردًا على",
+    "attach": "إرفاق",
+    "image": "صورة",
+    "syllabus": "المنهج",
+    "charactersLeft_one": "بقي حرف واحد",
+    "charactersLeft_other": "بقي {{count}} حرفًا",
+    "overLimit": "الرسالة طويلة جدًا.",
+    "profanity": "تحتوي رسالتك على لغة غير مسموح بها هنا.",
+    "badUrl": "تحتوي رسالتك على رابط غير مسموح به هنا.",
+    "empty": "رسالتك فارغة.",
+    "mentionHint": "اكتب @ لذكر شخص",
+    "pickCategory": "اختر فئة",
+    "pickItem": "اختر تقنية",
+    "pickSyllabus": "إرفاق من المنهج",
+    "uploading": "جارٍ تحميل الصورة…",
+    "uploadFailed": "فشل تحميل الصورة. يرجى المحاولة مرة أخرى.",
+    "bold": "عريض",
+    "italic": "مائل",
+    "code": "كود",
+    "emojiPicker": "إيموجي",
+    "openEmoji": "فتح الإيموجي"
+  },
+  "message": {
+    "edited": "معدّلة",
+    "editedAt": "عُدّلت {{time}}",
+    "deleted": "تم حذف هذه الرسالة",
+    "sending": "جارٍ الإرسال…",
+    "failed": "فشل الإرسال",
+    "retry": "إعادة المحاولة",
+    "replyTo": "ردًا على",
+    "deletedReply": "رسالة محذوفة",
+    "readByTitle": "شوهدت من قبل {{count}}",
+    "readByEmpty": "لم يشاهدها أحد بعد.",
+    "you": "أنت",
+    "readMore": "اقرأ المزيد",
+    "showLess": "إظهار أقل",
+    "loadingImage": "جارٍ تحميل الصورة…",
+    "timeNow": "الآن",
+    "minutesAgo": "قبل {{n}} دقيقة",
+    "hoursAgo": "قبل {{n}} ساعة"
+  },
+  "actions": {
+    "reply": "رد",
+    "copy": "نسخ النص",
+    "info": "معلومات الرسالة",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "block": "حظر المستخدم",
+    "unblock": "إلغاء حظر المستخدم",
+    "report": "إبلاغ",
+    "download": "تحميل الصورة",
+    "pin": "تثبيت",
+    "unpin": "إلغاء التثبيت",
+    "sheetTitle": "إجراءات الرسالة"
+  },
+  "date": { "today": "اليوم", "yesterday": "أمس" },
+  "pinned": {
+    "title": "مثبتة",
+    "empty": "لا توجد رسائل مثبتة بعد.",
+    "pinnedBy": "ثبّتها {{name}}",
+    "jumpTo": "الانتقال إلى الرسالة",
+    "messagePinned": "الرسالة المثبتة",
+    "tooMany": "يمكن تثبيت 5 رسائل فقط في المرة الواحدة."
+  },
+  "newMessages": {
+    "divider": "رسائل جديدة",
+    "scrollDown": "الانتقال إلى الأحدث",
+    "count_one": "رسالة جديدة واحدة",
+    "count_other": "{{count}} رسائل جديدة"
+  },
+  "typing": {
+    "one": "{{name}} يكتب…",
+    "two": "{{name}} و{{other}} يكتبان…",
+    "many": "{{count}} أشخاص يكتبون…"
+  },
+  "mention": {
+    "title": "ذكر شخص",
+    "noMatches": "لا يوجد أعضاء مطابقون.",
+    "hint": "استخدم الأسهم و Enter للاختيار"
+  },
+  "syllabusRef": {
+    "category": "الفئة",
+    "item": "التقنية",
+    "viewInSyllabus": "عرض في المنهج",
+    "categoryUnavailable": "الفئة غير متاحة",
+    "itemUnavailable": "التقنية غير متاحة"
+  },
+  "room": {
+    "title": "تفاصيل الغرفة",
+    "subtitle": "الأعضاء والمشرفون والإعدادات.",
+    "tabs": { "members": "الأعضاء", "admins": "مشرفو الغرفة", "blocked": "المحظورون", "reports": "الإبلاغات", "settings": "الإعدادات", "health": "الحالة" },
+    "members": {
+      "title": "الأعضاء",
+      "searchPlaceholder": "ابحث عن عضو…",
+      "noMatches": "لا يوجد أعضاء يطابقون بحثك.",
+      "you": "أنت",
+      "mainRoomAdmin": "المشرف الرئيسي",
+      "roomAdmin": "مشرف الغرفة",
+      "student": "طالب"
+    },
+    "admins": {
+      "title": "مشرفو الغرفة",
+      "hint": "يمكن لمشرفي الغرفة حذف أي رسالة، حظر المستخدمين، مراجعة الإبلاغات، وتثبيت الإعلانات.",
+      "promote": "تعيين مشرف غرفة",
+      "demote": "إزالة مشرف الغرفة",
+      "searchPlaceholder": "ابحث عن عضو لترقيته…",
+      "noRegularAdmins": "لا يوجد مشرفو غرفة بعد. رقّي عضوًا موثوقًا.",
+      "mainAdminCantBeDemoted": "لا يمكن تنزيل المشرف الرئيسي."
+    },
+    "blocked": {
+      "title": "المستخدمون المحظورون",
+      "hint": "يمكن للمستخدمين المحظورين القراءة لكن لا يمكنهم النشر حتى انتهاء الحظر أو رفعه.",
+      "none": "لا يوجد مستخدمون محظورون.",
+      "unblock": "إلغاء الحظر",
+      "blockedUntil": "حتى {{date}}",
+      "blockedForever": "دائمًا",
+      "blockedBy": "حظره {{name}}",
+      "reason": "السبب: {{reason}}"
+    },
+    "settings": {
+      "title": "إعدادات الغرفة",
+      "closeChat": "إغلاق الغرفة",
+      "closeChatHint": "لن يتمكن الطلاب من النشر. يمكن لمشرفي الغرفة النشر.",
+      "openChat": "إعادة فتح الغرفة",
+      "openChatHint": "يمكن للجميع النشر مرة أخرى.",
+      "closedStatus": "الغرفة مغلقة حاليًا.",
+      "openStatus": "الغرفة مفتوحة حاليًا.",
+      "cleanupInfo": "تُحذف الرسائل الأقدم من 30 يومًا تلقائيًا عندما يفتح مشرف الغرفة الغرفة."
+    },
+    "health": {
+      "title": "حالة المحادثة",
+      "totalMessages": "إجمالي الرسائل",
+      "deletedMessages": "الرسائل المحذوفة",
+      "activeToday": "نشط اليوم",
+      "blockedUsers": "المستخدمون المحظورون",
+      "activeMembers": "الأعضاء",
+      "pinnedCount": "الرسائل المثبتة"
+    }
+  },
+  "block": {
+    "title": "حظر المستخدم",
+    "message": "اختر مدة حظر {{name}}.",
+    "reasonPlaceholder": "لماذا تحظر هذا المستخدم؟ (اختياري)",
+    "duration24h": "24 ساعة",
+    "duration7d": "7 أيام",
+    "durationForever": "دائمًا",
+    "confirm": "حظر المستخدم",
+    "cancel": "إلغاء",
+    "success": "تم حظر {{name}}.",
+    "cannotBlockAdmin": "لا يمكنك حظر مشرف غرفة.",
+    "cannotBlockSelf": "لا يمكنك حظر نفسك."
+  },
+  "report": {
+    "title": "الإبلاغ عن الرسالة",
+    "message": "اشرح سبب وجوب مراجعة هذه الرسالة من قبل مشرف الغرفة.",
+    "reasonPlaceholder": "مثال: إزعاج، تحرش، خارج الموضوع…",
+    "submit": "إرسال الإبلاغ",
+    "cancel": "إلغاء",
+    "success": "شكرًا. سيراجعها مشرف الغرفة.",
+    "rateLimited": "لقد أبلغت عن هذه الرسالة بالفعل.",
+    "cannotReportOwn": "لا يمكنك الإبلاغ عن رسالتك.",
+    "reason": "السبب",
+    "dismiss": "تجاهل"
+  },
+  "deleteConfirm": {
+    "title": "حذف الرسالة",
+    "message": "حذف هذه الرسالة؟ ستبقى الردود عليها تظهرها كمحذوفة.",
+    "confirm": "حذف",
+    "cancel": "إلغاء",
+    "success": "تم حذف الرسالة."
+  },
+  "roomAdminBadge": "مشرف الغرفة",
+  "mainRoomAdminBadge": "المشرف الرئيسي",
+  "notifications": {
+    "reply": { "title": "رد جديد في غرفة الدوجو", "message": "{{name}} ردّ على رسالتك." },
+    "mention": { "title": "تم ذكرك في غرفة الدوجو", "message": "{{name}} ذكرك." }
+  },
+  "errors": {
+    "sendFailed": "تعذّر إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+    "editFailed": "تعذّر تعديل الرسالة.",
+    "deleteFailed": "تعذّر حذف الرسالة.",
+    "reportFailed": "تعذّر إرسال الإبلاغ.",
+    "blockFailed": "تعذّر حظر المستخدم.",
+    "notAllowed": "غير مسموح لك بذلك.",
+    "profanity": "تحتوي رسالتك على لغة غير مسموح بها.",
+    "badUrl": "تحتوي رسالتك على رابط غير مسموح به.",
+    "tooLong": "الرسالة طويلة جدًا.",
+    "empty": "الرسالة فارغة.",
+    "blocked": "أنت محظور حاليًا.",
+    "closed": "الغرفة مغلقة.",
+    "quota": "الغرفة غير متاحة مؤقتًا.",
+    "unblockFailed": "تعذّر إلغاء حظر المستخدم."
+  }
+}

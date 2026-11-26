@@ -1,0 +1,20 @@
+/* src/styles/variables.css */
+:root {
+  /* Samurai Colors */
+  --color-washi: #f4f1ea;      /* Traditional paper off-white */
+  --color-sumi: #1a1a1a;       /* Ink black */
+  --color-sumi-light: #333333; /* Softer ink for text */
+  --color-bengara: #8b2c24;    /* Deep Samurai Red */
+  --color-gold: #c0a062;       /* Muted gold accent */
+  --color-border: #d1cdc0;     /* Bamboo/Wood tone for borders */
+
+  /* Fonts */
+  --font-heading: 'Georgia', 'Times New Roman', serif; /* Gives a traditional feel */
+  --font-body: 'Helvetica Neue', Arial, sans-serif;
+
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+}

@@ -1,0 +1,99 @@
+/* src/components/DeleteConfirmModal.module.css */
+.modalCard {
+  position: relative;
+  background: white;
+  border-radius: 14px;
+  padding: 32px 28px 26px;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  border-top: 4px solid #e74c3c;
+  animation: deleteModalIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes deleteModalIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.iconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #fdecea;
+  color: #e74c3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  box-shadow: 0 4px 14px rgba(231, 76, 60, 0.25);
+  animation: deletePulse 2s ease-in-out infinite;
+}
+
+@keyframes deletePulse {
+  0%, 100% { box-shadow: 0 4px 14px rgba(231, 76, 60, 0.25); }
+  50%      { box-shadow: 0 4px 22px rgba(231, 76, 60, 0.45); }
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: #c0392b;
+  margin: 0 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.message {
+  color: var(--color-sumi-light);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 26px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cancelBtn {
+  padding: 11px 22px;
+  background: transparent;
+  color: var(--color-sumi-light);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background: #f4f1ea;
+  color: var(--color-sumi);
+}
+
+.confirmBtn {
+  padding: 11px 22px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.15s;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.confirmBtn:hover:not(:disabled) {
+  background: #c0392b;
+}
+
+.cancelBtn:disabled,
+.confirmBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

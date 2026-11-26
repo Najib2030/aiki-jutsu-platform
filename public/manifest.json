@@ -1,0 +1,23 @@
+{
+  "name": "Aiki Jutsu — Digital Dojo",
+  "short_name": "Aiki Jutsu",
+  "description": "The ultimate digital dojo for tracking your martial arts journey.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f1ea",
+  "theme_color": "#8b2c24",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

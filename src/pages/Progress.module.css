@@ -1,0 +1,1059 @@
+/* src/pages/Progress.module.css */
+
+.progressPage {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 20px;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* HERO                                                        */
+/* ══════════════════════════════════════════════════════════ */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.94), rgba(139, 44, 36, 0.92));
+  color: white;
+  padding: 32px 36px;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(192, 160, 98, 0.18),
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.heroText { flex: 1; min-width: 240px; position: relative; z-index: 1; }
+
+.heroTitle {
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  margin: 0 0 14px 0;
+}
+
+.heroBelt {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.beltPill {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+.beltPill[data-belt="yellow"] { background: #f1c40f; color: #1a1a1a; }
+.beltPill[data-belt="orange"] { background: #e67e22; color: #fff; }
+.beltPill[data-belt="green"]  { background: #2ecc71; color: #fff; }
+.beltPill[data-belt="blue"]   { background: #3498db; color: #fff; }
+.beltPill[data-belt="brown"]  { background: #8B5A2B; color: #fff; }
+.beltPill[data-belt="black"]  { background: #1a1a1a; color: #fff; border: 1px solid #555; }
+.beltPill[data-belt="dan1"]   { background: #d4af37; color: #1a1a1a; }
+
+.heroSub {
+  color: #ddd;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/* Progress ring — track & fill colours are set inline (previous/current belt) */
+.heroRing {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+}
+.ringSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.ringTrack {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.12);  /* fallback — overridden inline */
+  stroke-width: 10;
+  transition: stroke 0.35s ease;
+}
+.ringFill {
+  fill: none;
+  stroke: var(--color-gold);          /* fallback — overridden inline */
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition:
+    stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 0.35s ease;
+}
+.ringLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.ringValue {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: white;
+  line-height: 1;
+}
+.ringCaption {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* KPI CARDS                                                   */
+/* ══════════════════════════════════════════════════════════ */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+}
+
+.kpiCard {
+  background: white;
+  border-radius: 10px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #ccc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kpiCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.kpiCard[data-status="completed"] { border-left-color: #2ecc71; }
+.kpiCard[data-status="learning"]  { border-left-color: #f39c12; }
+.kpiCard[data-status="none"]      { border-left-color: #b8b8b8; }
+
+.kpiValue {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--color-sumi);
+  margin-bottom: 4px;
+}
+.kpiLabel {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+  color: var(--color-sumi);
+  margin-bottom: 2px;
+}
+.kpiHint {
+  font-size: 0.75rem;
+  color: var(--color-sumi-light);
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* PANEL (shared)                                              */
+/* ══════════════════════════════════════════════════════════ */
+.panel {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 26px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.panelTitle {
+  font-family: var(--font-heading);
+  color: var(--color-bengara);
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* BELT JOURNEY                                                */
+/* ══════════════════════════════════════════════════════════ */
+.beltSteps {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.beltStep {
+  flex: 1 1 100px;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 10px;
+  border-radius: 8px;
+  background: #faf8f3;
+  border: 1px solid var(--color-border);
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+/* Completed — tinted with the belt's own colour */
+.beltStep[data-state="completed"] {
+  background: color-mix(in srgb, var(--belt-color, #ccc) 14%, white);
+  border-color: color-mix(in srgb, var(--belt-color, #ccc) 40%, white);
+}
+
+.beltStep[data-state="current"] {
+  background: #fff8e1;
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 14px rgba(192, 160, 98, 0.25);
+}
+
+.beltStep[data-state="locked"] {
+  opacity: 0.55;
+}
+
+.beltDot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border: 2px solid var(--color-border);
+}
+
+/* Completed dot in the belt colour, not a fixed green */
+.beltStep[data-state="completed"] .beltDot {
+  background: var(--belt-color, #2ecc71);
+  color: white;
+  border-color: var(--belt-color, #2ecc71);
+}
+
+/* Yellow & Dan 1 have light backgrounds — use dark text on the checkmark */
+.beltStep[data-state="completed"][data-belt="yellow"] .beltDot,
+.beltStep[data-state="completed"][data-belt="dan1"] .beltDot {
+  color: #1a1a1a;
+}
+
+.beltStep[data-state="current"] .beltDot {
+  background: var(--color-gold);
+  color: white;
+  border-color: var(--color-gold);
+}
+
+.beltStep[data-state="locked"] .beltDot {
+  color: #999;
+}
+
+.beltStepLabel {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--color-sumi);
+}
+.beltStepMeta {
+  font-size: 0.75rem;
+  color: var(--color-sumi-light);
+  letter-spacing: 0.5px;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* CATEGORY PROGRESS                                           */
+/* ══════════════════════════════════════════════════════════ */
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.categoryRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.categoryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.categoryName {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-sumi);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+.categoryJa {
+  color: var(--color-sumi-light);
+  font-size: 0.85rem;
+  margin-left: 10px;
+  letter-spacing: 2px;
+}
+
+.categoryStat {
+  font-size: 0.82rem;
+  color: var(--color-sumi-light);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.progressTrack {
+  height: 10px;
+  background: #f0ebe1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-bengara), var(--color-gold));
+  border-radius: 5px;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* TECHNIQUE LIST                                              */
+/* ══════════════════════════════════════════════════════════ */
+.listHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.listHeader .panelTitle { margin-bottom: 16px; }
+.listCount {
+  font-size: 0.85rem;
+  color: var(--color-sumi-light);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filterInput,
+.filterSelect {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background: white;
+  color: var(--color-sumi);
+}
+.filterInput {
+  flex: 1 1 240px;
+  min-width: 200px;
+}
+.filterInput:focus,
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(192, 160, 98, 0.2);
+}
+
+.clearBtn {
+  padding: 10px 18px;
+  border: 1px solid var(--color-bengara);
+  background: transparent;
+  color: var(--color-bengara);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.clearBtn:hover {
+  background: var(--color-bengara);
+  color: white;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--color-sumi-light);
+  font-style: italic;
+  font-size: 0.95rem;
+  background: #faf8f3;
+  border-radius: 8px;
+}
+
+/* Technique rows */
+.techniqueList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.techniqueRow {
+  display: grid;
+  grid-template-columns: 40px 1fr auto auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+.techniqueRow:hover {
+  transform: translateX(2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.techniqueRow:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.techniqueRow[data-status="completed"] { border-left-color: #2ecc71; }
+.techniqueRow[data-status="learning"]  { border-left-color: #f39c12; }
+.techniqueRow[data-status="none"]      { border-left-color: #d0d0d0; }
+
+.techniqueOrder {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-gold);
+  text-align: center;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.techniqueMain {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.techniqueName {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.techniqueJa {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-sumi);
+  letter-spacing: 1px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.techniqueEn {
+  color: var(--color-sumi-light);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.techniqueMeta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.categoryChip,
+.beltChip {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 9px;
+  border-radius: 10px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.categoryChip {
+  background: rgba(192, 160, 98, 0.15);
+  color: var(--color-sumi-light);
+}
+.beltChip[data-belt="yellow"] { background: #f1c40f; color: #1a1a1a; }
+.beltChip[data-belt="orange"] { background: #e67e22; color: #fff; }
+.beltChip[data-belt="green"]  { background: #2ecc71; color: #fff; }
+.beltChip[data-belt="blue"]   { background: #3498db; color: #fff; }
+.beltChip[data-belt="brown"]  { background: #8B5A2B; color: #fff; }
+.beltChip[data-belt="black"]  { background: #1a1a1a; color: #fff; }
+.beltChip[data-belt="dan1"]   { background: #d4af37; color: #1a1a1a; }
+
+.techniqueStatus {
+  min-width: 110px;
+  text-align: right;
+}
+
+.statusPill {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.statusPill[data-status="completed"] { background: #e8f6ec; color: #1e7a3f; }
+.statusPill[data-status="learning"]  { background: #fff8e1; color: #b7791f; }
+.statusPill[data-status="none"]      { background: #f0f0f0; color: #888; }
+
+.techniqueActions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 200px;
+}
+
+.actionPrimary,
+.actionSecondary {
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.actionPrimary {
+  background: var(--color-bengara);
+  border-color: var(--color-bengara);
+  color: white;
+}
+.actionPrimary:hover:not(:disabled) {
+  background: #6a211a;
+  border-color: #6a211a;
+}
+
+.actionSecondary {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-sumi-light);
+}
+.actionSecondary:hover:not(:disabled) {
+  background: #f4f1ea;
+  color: var(--color-sumi);
+}
+
+.actionPrimary:disabled,
+.actionSecondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* RESPONSIVE                                                  */
+/* ══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .techniqueRow {
+    grid-template-columns: 32px 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .techniqueStatus {
+    grid-column: 2;
+    text-align: left;
+  }
+  .techniqueActions {
+    grid-column: 1 / -1;
+    min-width: 0;
+    justify-content: flex-end;
+    padding-top: 8px;
+    border-top: 1px dashed var(--color-border);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .heroTitle { font-size: 1.7rem; }
+  .heroRing { width: 110px; height: 110px; align-self: center; }
+  .ringValue { font-size: 1.4rem; }
+
+  .kpiGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .panel { padding: 18px; }
+  .filterBar { flex-direction: column; }
+  .filterInput,
+  .filterSelect { width: 100%; }
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* VALIDATION BANNER                                           */
+/* ══════════════════════════════════════════════════════════ */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: 10px;
+  border-left: 5px solid;
+  flex-wrap: wrap;
+}
+.bannerContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex: 1;
+  min-width: 240px;
+}
+.bannerIcon { font-size: 1.8rem; line-height: 1; }
+.bannerTitle {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+.bannerMessage { font-size: 0.92rem; line-height: 1.5; }
+
+.banner_pending  { background: #fff8e1; border-color: #f39c12; color: #856404; }
+.banner_approved { background: #e8f6ec; border-color: #2ecc71; color: #1e7a3f; }
+.banner_rejected { background: #fdecea; border-color: #e74c3c; color: #8a1f17; }
+.banner_ready    { background: #e3f2fd; border-color: #3498db; color: #1565a7; }
+
+.requestBtn {
+  background: var(--color-bengara);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.requestBtn:hover:not(:disabled) { background: #6a211a; }
+.requestBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ══════════════════════════════════════════════════════════ */
+/* DAN 1 — SENSEI GRADUATION VIEW                             */
+/* ══════════════════════════════════════════════════════════ */
+.dan1Page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-bottom: 20px;
+}
+
+/* ── Certificate hero ─────────────────────────────────────── */
+.senseiHero {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a1a1a 55%, #3d1f1a 100%);
+  color: white;
+  padding: 60px 40px 50px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border: 2px solid var(--color-gold);
+}
+
+.senseiHero::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(192, 160, 98, 0.35);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.senseiHero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top center,
+    rgba(192, 160, 98, 0.15),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.senseiSeal {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-gold);
+  letter-spacing: 8px;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 4px 20px rgba(192, 160, 98, 0.4);
+}
+
+.senseiTitle {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  letter-spacing: 4px;
+  margin: 0 0 8px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.senseiSubtitle {
+  font-size: 0.95rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 0 0 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.senseiName {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-gold);
+  font-style: italic;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+  padding: 12px 24px;
+  border-top: 1px solid rgba(192, 160, 98, 0.3);
+  border-bottom: 1px solid rgba(192, 160, 98, 0.3);
+  display: inline-block;
+  min-width: 300px;
+}
+
+.senseiDate {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Stats grid ───────────────────────────────────────────── */
+.senseiStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.senseiStatCard {
+  background: white;
+  padding: 26px 22px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid var(--color-gold);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.senseiStatCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.senseiStatValue {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  color: var(--color-bengara);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.senseiStatValueSmall {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.senseiStatLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-sumi-light);
+  font-weight: bold;
+}
+
+/* ── Congratulations letter ───────────────────────────────── */
+.congratsLetter {
+  position: relative;
+  background: linear-gradient(135deg, #fdfaf3 0%, #faf5e8 100%);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 52px 60px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.congratsLetter::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(192, 160, 98, 0.35);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.letterSeal {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bengara);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(139, 44, 36, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+.letterTitle {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  color: var(--color-bengara);
+  letter-spacing: 3px;
+  margin: 0 0 28px;
+  text-align: center;
+}
+
+.letterBody {
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  line-height: 1.95;
+  color: var(--color-sumi);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.letterBody p {
+  margin: 0 0 16px;
+}
+
+.letterBody strong {
+  color: var(--color-bengara);
+  font-weight: bold;
+}
+
+.letterSign {
+  margin-top: 36px !important;
+  text-align: right;
+  font-style: italic;
+  color: var(--color-sumi-light);
+}
+
+/* ── Panels ───────────────────────────────────────────────── */
+.senseiPanel {
+  background: white;
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.senseiPanelTitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-bengara);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 22px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* ── Belt list ────────────────────────────────────────────── */
+.senseiBeltList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.senseiBeltRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: #faf8f3;
+  border-radius: 8px;
+}
+
+.senseiBeltBadge {
+  width: 14px;
+  height: 44px;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.senseiBeltBadge[data-belt="yellow"] { background: #f1c40f; }
+.senseiBeltBadge[data-belt="orange"] { background: #e67e22; }
+.senseiBeltBadge[data-belt="green"]  { background: #2ecc71; }
+.senseiBeltBadge[data-belt="blue"]   { background: #3498db; }
+.senseiBeltBadge[data-belt="brown"]  { background: #8B5A2B; }
+.senseiBeltBadge[data-belt="black"]  { background: #1a1a1a; }
+
+.senseiBeltInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.senseiBeltName {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-sumi);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.senseiBeltMeta {
+  font-size: 0.85rem;
+  color: var(--color-sumi-light);
+  margin-top: 2px;
+}
+
+.senseiBeltCheck {
+  font-size: 1.4rem;
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+/* ── Category grid ────────────────────────────────────────── */
+.senseiCategoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.senseiCategoryCard {
+  background: #faf8f3;
+  padding: 18px 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-gold);
+}
+
+.senseiCategoryName {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-sumi);
+  font-weight: bold;
+}
+
+.senseiCategoryJa {
+  font-size: 0.85rem;
+  color: var(--color-sumi-light);
+  letter-spacing: 2px;
+  margin: 4px 0 8px;
+}
+
+.senseiCategoryCount {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--color-bengara);
+  font-weight: bold;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .senseiHero { padding: 42px 24px 36px; }
+  .senseiTitle { font-size: 1.9rem; letter-spacing: 2px; }
+  .senseiSeal { font-size: 2.2rem; letter-spacing: 4px; }
+  .senseiName { font-size: 1.4rem; min-width: 0; }
+  .congratsLetter { padding: 36px 24px; }
+  .letterSeal { top: 14px; right: 14px; width: 48px; height: 48px; font-size: 1.5rem; }
+  .letterTitle { font-size: 1.4rem; }
+  .senseiPanel { padding: 20px; }
+}
+
+/* Art name above the seal */
+.senseiArtName {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: rgba(192, 160, 98, 0.85);
+  letter-spacing: 12px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  padding-left: 12px; /* offsets the letter-spacing to keep it centred */
+}
+
+/* Small tick on the category count */
+.senseiCategoryCheck {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+/* ── Icon support ── */
+.kpiCard svg.kpiIcon {
+  color: var(--color-gold);
+  margin-bottom: 4px;
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panelTitle svg {
+  color: var(--color-bengara);
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.clearBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actionPrimary,
+.actionSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

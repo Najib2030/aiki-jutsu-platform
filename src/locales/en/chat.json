@@ -1,0 +1,229 @@
+{
+  "openMenu": "Open menu",
+  "heading": "Dojo Room",
+  "subtitle": "One shared space for every member of the dojo.",
+  "loading": "Loading the room…",
+  "maintenance": "The room is temporarily under maintenance. Please try again later.",
+  "maintenanceTitle": "Room Unavailable",
+  "retry": "Try again",
+  "roomClosed": "The room is closed by a moderator. Only room admins can post.",
+  "blockedBanner": "You have been blocked from posting in this room.",
+  "blockedExpiresIn": "Blocked until {{date}}",
+  "blockedForever": "Blocked permanently",
+  "blockedReason": "Reason: {{reason}}",
+  "loadMore": "Load older messages",
+  "loadMoreLoading": "Loading older messages…",
+  "notApproved": {
+    "title": "Not Approved Yet",
+    "message": "Your account is currently being reviewed by your Sensei. You will be able to join the Dojo Room chat as soon as your account is approved."
+  },
+  "composer": {
+    "placeholder": "Texting…",
+    "placeholderBlocked": "You cannot post right now.",
+    "placeholderClosed": "The room is closed.",
+    "send": "Send",
+    "cancel": "Cancel",
+    "cancelReply": "Cancel reply",
+    "cancelEdit": "Cancel edit",
+    "editing": "Editing message",
+    "replyingTo": "Replying to",
+    "attach": "Attach",
+    "image": "Image",
+    "syllabus": "Syllabus",
+    "charactersLeft_one": "{{count}} character left",
+    "charactersLeft_other": "{{count}} characters left",
+    "overLimit": "Message is too long.",
+    "profanity": "Your message contains language that isn't allowed here.",
+    "badUrl": "Your message contains a link that isn't allowed here.",
+    "empty": "Your message is empty.",
+    "mentionHint": "Type @ to mention someone",
+    "pickCategory": "Pick a Category",
+    "pickItem": "Pick an Item",
+    "pickSyllabus": "Attach from the Syllabus",
+    "uploading": "Uploading image…",
+    "uploadFailed": "Image upload failed. Please try again.",
+    "bold": "Bold",
+    "italic": "Italic",
+    "code": "Inline code",
+    "emojiPicker": "Emojis",
+    "openEmoji": "Open emojis"
+  },
+  "message": {
+    "edited": "edited",
+    "editedAt": "Edited {{time}}",
+    "deleted": "This message was deleted",
+    "sending": "Sending…",
+    "failed": "Failed to send",
+    "retry": "Retry",
+    "replyTo": "replying to",
+    "deletedReply": "message deleted",
+    "readByTitle": "Read by {{count}}",
+    "readByEmpty": "No one has seen this yet.",
+    "you": "You",
+    "readMore": "Read more",
+    "showLess": "Show less",
+    "loadingImage": "Loading image…",
+    "timeNow": "now",
+    "minutesAgo": "{{n}} min ago",
+    "hoursAgo": "{{n}} h ago"
+  },
+  "actions": {
+    "reply": "Reply",
+    "copy": "Copy text",
+    "info": "Message info",
+    "edit": "Edit",
+    "delete": "Delete",
+    "block": "Block user",
+    "unblock": "Unblock User",
+    "report": "Report",
+    "download": "Download image",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "sheetTitle": "Message actions"
+  },
+  "date": { "today": "Today", "yesterday": "Yesterday" },
+  "pinned": {
+    "title": "Pinned",
+    "empty": "No pinned messages yet.",
+    "pinnedBy": "Pinned by {{name}}",
+    "jumpTo": "Jump to message",
+    "messagePinned": "Pinned message",
+    "tooMany": "Only 5 messages can be pinned at once."
+  },
+  "newMessages": {
+    "divider": "New messages",
+    "scrollDown": "Scroll to latest",
+    "count_one": "{{count}} new message",
+    "count_other": "{{count}} new messages"
+  },
+  "typing": {
+    "one": "{{name}} is typing…",
+    "two": "{{name}} and {{other}} are typing…",
+    "many": "{{count}} people are typing…"
+  },
+  "mention": {
+    "title": "Mention someone",
+    "noMatches": "No matching members.",
+    "hint": "Use the arrow keys and Enter to pick"
+  },
+  "syllabusRef": {
+    "category": "Category",
+    "item": "Technique",
+    "viewInSyllabus": "View in Syllabus",
+    "categoryUnavailable": "Category unavailable",
+    "itemUnavailable": "Technique unavailable"
+  },
+  "room": {
+    "title": "Room details",
+    "subtitle": "Members, moderators, and settings.",
+    "tabs": {
+      "members": "Members",
+      "admins": "Room Admins",
+      "blocked": "Blocked",
+      "reports": "Reports",
+      "settings": "Settings",
+      "health": "Health"
+    },
+    "members": {
+      "title": "Members",
+      "searchPlaceholder": "Search members…",
+      "noMatches": "No members match your search.",
+      "you": "You",
+      "mainRoomAdmin": "Main Admin",
+      "roomAdmin": "Room Admin",
+      "student": "Student"
+    },
+    "admins": {
+      "title": "Room Admins",
+      "hint": "Room admins can delete any message, block users, review reports, and pin announcements.",
+      "promote": "Make room admin",
+      "demote": "Remove room admin",
+      "searchPlaceholder": "Search members to promote…",
+      "noRegularAdmins": "No room admins yet. Promote a trusted member.",
+      "mainAdminCantBeDemoted": "The main admin cannot be demoted."
+    },
+    "blocked": {
+      "title": "Blocked users",
+      "hint": "Blocked users can read but cannot post until their block expires or is lifted.",
+      "none": "No blocked users.",
+      "unblock": "Unblock",
+      "blockedUntil": "Until {{date}}",
+      "blockedForever": "Forever",
+      "blockedBy": "Blocked by {{name}}",
+      "reason": "Reason: {{reason}}"
+    },
+    "settings": {
+      "title": "Room settings",
+      "closeChat": "Close the room",
+      "closeChatHint": "Students will not be able to post. Room admins can still post.",
+      "openChat": "Reopen the room",
+      "openChatHint": "Everyone can post again.",
+      "closedStatus": "The room is currently closed.",
+      "openStatus": "The room is currently open.",
+      "cleanupInfo": "Messages older than 30 days are removed automatically when a room admin opens the room."
+    },
+    "health": {
+      "title": "Chat health",
+      "totalMessages": "Total messages",
+      "deletedMessages": "Deleted messages",
+      "activeToday": "Active today",
+      "blockedUsers": "Blocked users",
+      "activeMembers": "Members",
+      "pinnedCount": "Pinned messages"
+    }
+  },
+  "block": {
+    "title": "Block user",
+    "message": "Choose how long {{name}} should be blocked from posting.",
+    "reasonPlaceholder": "Why are you blocking this user? (optional)",
+    "duration24h": "24 hours",
+    "duration7d": "7 days",
+    "durationForever": "Forever",
+    "confirm": "Block user",
+    "cancel": "Cancel",
+    "success": "{{name}} has been blocked.",
+    "cannotBlockAdmin": "You cannot block a room admin.",
+    "cannotBlockSelf": "You cannot block yourself."
+  },
+  "report": {
+    "title": "Report message",
+    "message": "Explain why this message should be reviewed by a room admin.",
+    "reasonPlaceholder": "e.g. Spam, harassment, off-topic…",
+    "submit": "Submit report",
+    "cancel": "Cancel",
+    "success": "Thank you. A room admin will review it.",
+    "rateLimited": "You already reported this message.",
+    "cannotReportOwn": "You cannot report your own message.",
+    "reason": "Reason",
+    "dismiss": "Dismiss"
+  },
+  "deleteConfirm": {
+    "title": "Delete message",
+    "message": "Delete this message? Replies to it will still show it as deleted.",
+    "confirm": "Delete",
+    "cancel": "Cancel",
+    "success": "Message deleted."
+  },
+  "roomAdminBadge": "Room Admin",
+  "mainRoomAdminBadge": "Main Admin",
+  "notifications": {
+    "reply": { "title": "New reply in the Dojo Room", "message": "{{name}} replied to your message." },
+    "mention": { "title": "You were mentioned in the Dojo Room", "message": "{{name}} mentioned you." }
+  },
+  "errors": {
+    "sendFailed": "Could not send the message. Please try again.",
+    "editFailed": "Could not edit the message.",
+    "deleteFailed": "Could not delete the message.",
+    "reportFailed": "Could not submit the report.",
+    "blockFailed": "Could not block the user.",
+    "notAllowed": "You are not allowed to do that.",
+    "profanity": "Your message contains disallowed language.",
+    "badUrl": "Your message contains a disallowed link.",
+    "tooLong": "Message is too long.",
+    "empty": "Message is empty.",
+    "blocked": "You are currently blocked from posting.",
+    "closed": "The room is closed.",
+    "quota": "The room is temporarily unavailable.",
+    "unblockFailed": "Could not unblock the user."
+  }
+}
